@@ -255,9 +255,9 @@ const Test = () => {
 
 
 <div className="max-w-sm ml-[10%] transition duration-200 h-[50%]  rounded-2xl mt-5 hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
- <a href="https://github.com/NishantAsnani/FACEBOOK_CLONE"> <Card imgSrc={yelp_camp} className="">
+ <a href="https://github.com/Colt/YelpCamp"> <Card imgSrc={yelp_camp} className="">
     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-      Yelp_camp (Part of course codealong)
+      Yelp_camp (Part of course code along)
     </h5>
   </Card>
   </a>
