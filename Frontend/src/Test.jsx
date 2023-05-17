@@ -244,7 +244,7 @@ const Test = () => {
 
 
 <div className="max-w-sm ml-[10%] transition duration-200 h-[50%]  rounded-2xl mt-5 hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
- <a href="https://github.com/NishantAsnani/FACEBOOK_CLONE"> <Card imgSrc={portfolio} className="">
+ <a href="https://github.com/NishantAsnani/Portfolio"> <Card imgSrc={portfolio} className="">
     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
       Personal portfolio
     </h5>
