@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities
+{
+    .items
+    {
+        @apply transition ease-in-out hover:cursor-pointer pl-8 pt-2 tracking-wide
+        after:absolute  after:bg-[#ff3c78]  after:h-[3px]  after:w-0 
+        after:left-1  after:bottom-[-10px]  after:duration-300
+        hover:after:w-full hover:-translate-y-1
+    }
+}
+
+.dark{
+    background-color:rgb(12, 12, 12);
+    color:white;
+}
+
+.light{
+    background-color:white;
+    color:rgb(12, 12, 12);
+}
+
+html
+{
+    scroll-behavior: smooth;
+}
+
+
