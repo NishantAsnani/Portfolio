@@ -34,7 +34,7 @@ const Test = () => {
   },[istheme])
   return (
     <React.Fragment>
-      <div className="xxs:ml-56 xs:ml-44  text-xl mt-[3%] ml-14 inline-flex mx-auto max-w-[1800px] flex-row justify-around ">
+      <div className="xxs:ml-56 xs:ml-44  text-xl mt-[3%] ml-14 inline-flex mx-auto max-w-[1000px] flex-row justify-around ">
         
         
         <ul className="flex justify-evenly max-w-[800px] font-semibold">
@@ -42,6 +42,7 @@ const Test = () => {
     <Button
       color="success"
       pill={true}
+      className="xxs:w-28 xs:w-28"
     >
       My Resume
     </Button>
@@ -67,7 +68,7 @@ const Test = () => {
       </div>
 
 
-      <div className="w-full flex">
+      <div className="w-full flex xs:flex justify-center">
 
         <div className="ml-[20%] object-contain mt-[2%]  xs:ml-[5%] xs:h-[700px] xxs:h-[15%] xxs:ml-[10%]  xxs:mt-[10%]">
         <img src={image} 
@@ -154,22 +155,22 @@ const Test = () => {
 
 <div className="flex justify-center flex-row flex-wrap-reverse">
 <div className="max-w-sm ml-[10%] transition duration-200 h-[50%]  rounded-2xl  hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
-  <Card imgSrc={udemy} className="">
+  <Card imgSrc={udemy} className="xxs:mt-2 xs:mt-4">
     <a href="https://www.udemy.com/certificate/UC-5f5c6928-c62b-4020-9f1f-58124763e3e3/">
-    <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+    <h6 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
       See certificate
-    </h5>
+    </h6>
     </a>
   </Card>
 </div>
 
 
 <div className="max-w-sm ml-[10%] transition duration-200 h-[50%]  rounded-2xl  hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
-  <Card imgSrc={google}>
+  <Card imgSrc={google} className="xxs:mt-2 xs:mt-4">
     <a href="https://www.cloudskillsboost.google/public_profiles/9b7d27ce-d52e-4421-8b38-9b3f1fa1b7fc">
-    <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+    <h6 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
       See certificate
-    </h5>
+    </h6>
     </a>
   </Card>
 </div>
@@ -186,7 +187,7 @@ const Test = () => {
 
 <div className="flex justify-center flex-row flex-wrap-reverse">
 <div className="max-w-sm ml-[10%] transition duration-200 h-[50%]  rounded-2xl  hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
-  <Card imgSrc={aiesec} className="">
+  <Card imgSrc={aiesec} className="xxs:mt-2 xs:mt-3 ">
     <h6 className="text-lg tracking-tight text-gray-900 dark:text-white">
       Member of IGT Team AIESEC surat conducted meetings with international AIESEC  firms 
       for exchange of interns.
@@ -196,30 +197,30 @@ const Test = () => {
 
 
 <div className="max-w-sm ml-[10%] transition duration-200 h-[50%] mt-5  rounded-2xl  hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
-  <Card imgSrc={innovate}>
-    <h5 className="text-lg tracking-tight text-gray-900 dark:text-white">
+  <Card imgSrc={innovate} className="xxs:mt-2 xs:mt-3" >
+    <h6 className="text-lg tracking-tight text-gray-900 dark:text-white">
       Conducted door-to-door surveys and created awareness regarding 
       dry and wet waste  uder Innovate4India NGO.
-    </h5>
+    </h6>
   </Card>
 </div>
 
 
 <div className="max-w-sm ml-[10%] transition duration-200 h-[50%]  rounded-2xl  hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
-  <Card imgSrc={coordinator}>
-    <h5 className="text-lg tracking-tight text-gray-900 dark:text-white">
+  <Card imgSrc={coordinator} className="xxs:mt-2 xs:mt-3" >
+    <h6 className="text-lg tracking-tight text-gray-900 dark:text-white">
       Hosted a web based tech event in my college tech-fest named Updates.
-    </h5>
+    </h6>
   </Card>
 </div>
 
 
 <div className="max-w-sm ml-[10%] transition duration-200 h-[50%]  rounded-2xl  hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
-  <Card imgSrc={niyukti}>
-    <h5 className="text-lg tracking-tight text-gray-900 dark:text-white">
+  <Card imgSrc={niyukti} className="xxs:mt-2 xs:mt-3" >
+    <h6 className="text-lg tracking-tight text-gray-900 dark:text-white">
       Stood first in a mock interview based evnent in my college tech-fest
       named Updates.
-    </h5>
+    </h6>
   </Card>
 </div>
 
@@ -281,22 +282,22 @@ const Test = () => {
 
 <div className="flex justify-center">
   <ul>
-  <li className="text-4xl">	&#9742; You can call me at: &nbsp; 
-  <span className="text-2xl transition duration-200 text-[#ff3c78]  hover:scale-110 hover:cursor-pointer">
+  <li className="text-4xl xs:text-2xl xxs:text-xl">	&#9742; You can call me at: &nbsp; 
+  <span className="text-2xl transition duration-200 text-[#ff3c78]  hover:scale-110 hover:cursor-pointer xs:text-xl xxs:text-lg ">
   (+91) 7043680624
     </span> 
   </li>
 
 
-  <li className="text-4xl mt-2">&#128231; You can mail me at:&nbsp; 
-  <span className="text-2xl transition duration-200 text-[#ff3c78]  hover:scale-110 hover:cursor-pointer">
+  <li className="text-4xl mt-2 xs:text-2xl xxs:text-xl">&#128231; Mail me at:&nbsp; 
+  <span className="text-2xl transition duration-200 text-[#ff3c78]  hover:scale-110 hover:cursor-pointer xs:text-xl xxs:text-lg ">
      asnaninishant2@gmail.com
     </span> 
   </li>
 
 
-  <li className="text-4xl mt-2">&#128241; You can message me at:&nbsp; 
-  <span className="text-2xl transition duration-200 text-[#ff3c78]  hover:scale-110 hover:cursor-pointer">
+  <li className="text-4xl mt-2 xs:text-2xl xxs:text-xl">&#128241; You can message me at:&nbsp; 
+  <span className="text-2xl transition duration-200 text-[#ff3c78]  hover:scale-110 hover:cursor-pointer xs:text-xl xxs:text-lg ">
      <a href="https://www.linkedin.com/in/nishant-asnani-aa6093208/">Linkedin</a>  
     </span> 
   </li>
@@ -306,8 +307,8 @@ const Test = () => {
   
 </div>
 
-<footer className="xxxs:w-full   w-full h-10 bg-black mt-5 rounded-sm flex justify-center">
-<span className="text-white mt-2">&#169; Nishant Asnani All rights reserved</span>
+<footer className="flex justify-center">
+<span className="mt-4">&#169; Nishant Asnani All rights reserved</span>
 
 </footer>
     </React.Fragment>
