@@ -1,10 +1,6 @@
 import React,{useState,useEffect} from "react";
 import image from '/Portfolio_Image.jpg'
 import { Carousel,Card,Label,TextInput,Checkbox,Button } from "flowbite-react";
-import mongodb from '/mongodb.png'
-import node from '/node.png';
-import express from '/express.png'
-import react from '/react.png'
 import udemy from '/certi_udemy.png'
 import google from '/google.png'
 import aiesec from '/aiesec.png'
@@ -60,8 +56,9 @@ const Test = () => {
   <input type="checkbox" value="" onChange={changetheme} className="sr-only peer" />
   <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
 </label>
-      </div>
 
+      </div>
+      <span className="ml-2 relative top-1">Change theme</span>
 
        
         
@@ -93,11 +90,12 @@ const Test = () => {
             <a href="https://github.com/NishantAsnani" className={`${istheme==='dark'?"bg-white":"text-black"}`}>
             
             <img className="w-16 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+            
           
             </a>
           
             <a href="https://www.linkedin.com/in/nishant-asnani-aa6093208/" className={`${istheme==='dark'?"text-white":"text-black"}`} >
-            <img className="w-11 h-14 ml-7 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" />
+            <img className="w-12 h-14 ml-7 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" />
           
 
             </a>
@@ -109,7 +107,7 @@ const Test = () => {
 <div className=" relative bottom-12">
 <div className="flex justify-center mb-[2%]">
 <h1 id='skills' className="xs:text-3xl xxs:text-2xl text-5xl transition-all duration-200 ease-in-out hover:tracking-widest cursor-pointer xxs:mt-[40%]">
-  &#x2BC1; Skills &#x2BC1;</h1>
+   Skills </h1>
 </div>
 
 
@@ -152,7 +150,7 @@ const Test = () => {
 
 <div className="flex justify-center mb-[2%] mt-[5%]">
 <h1 id='certifications' className="xs:text-3xl xxs:text-2xl text-5xl transition-all duration-200 ease-in-out hover:tracking-widest cursor-pointer xxs:mt-[40%]">
-  &#x2BC1; Certificates &#x2BC1;</h1>
+   Certificates </h1>
 </div>
 
 
@@ -184,7 +182,7 @@ const Test = () => {
 
 <div className="flex justify-center mb-[2%] mt-[5%]">
 <h1 id='experience' className="xs:text-3xl xxs:text-2xl text-5xl transition-all duration-200 ease-in-out hover:tracking-widest cursor-pointer xxs:mt-[40%]">
-  &#x2BC1; Experience &#x2BC1;</h1>
+   Experience </h1>
 </div>
 
 
@@ -234,7 +232,7 @@ const Test = () => {
 
 <div className="flex justify-center mb-[2%] mt-[5%]">
 <h1 id='projects' className="xs:text-3xl xxs:text-2xl text-5xl transition-all duration-200 ease-in-out hover:tracking-widest cursor-pointer xxs:mt-[40%]">
-  &#x2BC1; Projects &#x2BC1;</h1>
+   Projects </h1>
 </div>
 
 
@@ -282,7 +280,7 @@ const Test = () => {
 
 <div className="flex justify-center mb-[2%] mt-[5%]">
 <h1 id='contactme' className="text-5xl transition-all duration-200 ease-in-out hover:tracking-widest cursor-pointer xxs:mt-[40%]">
-  &#x2BC1; Let's Talk &#x2BC1;</h1>
+   Let's Talk </h1>
 </div>
 
 <div className="flex justify-center">
