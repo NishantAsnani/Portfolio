@@ -1,21 +1,21 @@
 import React,{useState,useEffect} from "react";
-import image from './assets/Portfolio_Image.jpg'
+import image from '/Portfolio_Image.jpg'
 import { Carousel,Card,Label,TextInput,Checkbox,Button } from "flowbite-react";
-import mongodb from './assets/mongodb.png'
-import node from './assets/node.png';
-import express from './assets/express.png'
-import react from './assets/react.png'
-import udemy from './assets/certi_udemy.png'
-import google from './assets/google.png'
-import aiesec from './assets/aiesec.png'
-import innovate from './assets/Innovate4india.jpeg'
-import coordinator from './assets/coordinator.png'
-import niyukti from './assets/niyukti.jpeg'
-import facebook from './assets/facebook_proj.png'
-import yelp_camp from './assets/yelpcamp_proj.png'
-import Rentofy from './assets/Rentofy_proj.png'
-import portfolio from './assets/portfolio_proj.png'
-import resume from './assets/Nishant_Asnani_Resume.pdf'
+import mongodb from '/mongodb.png'
+import node from '/node.png';
+import express from '/express.png'
+import react from '/react.png'
+import udemy from '/certi_udemy.png'
+import google from '/google.png'
+import aiesec from '/aiesec.png'
+import innovate from '/Innovate4india.jpeg'
+import coordinator from '/coordinator.png'
+import niyukti from '/niyukti.jpeg'
+import facebook from '/facebook_proj.png'
+import yelp_camp from '/yelpcamp_proj.png'
+import Rentofy from '/Rentofy_proj.png'
+import portfolio from '/portfolio_proj.png'
+import resume from '/Nishant_Asnani_Resume.pdf'
 
 const Test = () => {
   const [istheme,Setistheme]=useState("dark-theme");
@@ -34,7 +34,7 @@ const Test = () => {
   },[istheme])
   return (
     <React.Fragment>
-      <div className="xxs:ml-56 xs:ml-44  text-xl mt-[3%] ml-14 inline-flex mx-auto max-w-[1000px] flex-row justify-around ">
+      <div className="text-xl mt-[3%]  inline-flex mx-auto max-w-[1000px] flex-row justify-around ">
         
         
         <ul className="flex justify-evenly max-w-[800px] font-semibold">
@@ -91,15 +91,14 @@ const Test = () => {
           <div className="flex w-[100px] justify-between">
 
             <a href="https://github.com/NishantAsnani" className={`${istheme==='dark'?"bg-white":"text-black"}`}>
-            <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github v-align-middle">
-    <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
-</svg>
+            
+            <img className="w-16 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+          
             </a>
           
             <a href="https://www.linkedin.com/in/nishant-asnani-aa6093208/" className={`${istheme==='dark'?"text-white":"text-black"}`} >
-            <svg className="w-12 h-9" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
-  <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
-</svg>
+            <img className="w-11 h-14 ml-7 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" />
+          
 
             </a>
           </div>
@@ -107,55 +106,59 @@ const Test = () => {
         </div>       
       </div>
 
-
+<div className=" relative bottom-12">
 <div className="flex justify-center mb-[2%]">
-<h1 id='skills' className="text-5xl transition-all duration-200 ease-in-out hover:tracking-widest cursor-pointer xxs:mt-[40%]">
+<h1 id='skills' className="xs:text-3xl xxs:text-2xl text-5xl transition-all duration-200 ease-in-out hover:tracking-widest cursor-pointer xxs:mt-[40%]">
   &#x2BC1; Skills &#x2BC1;</h1>
 </div>
 
 
-<div className="flex justify-center">
-      <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 w-[80%]">
-  <Carousel indicators={false}>
-    <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
-      <span className="flex justify-center">
-       <a href="https://www.mongodb.com/docs/"> <img src={mongodb} className=" xxs:ml-20 w-[50%] h-[90%] ml-60 xs:ml-[85px]
-        " alt="" /></a>
-      </span>
-    </div>
-    <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
-    <span className="flex justify-center">
-       <a href="https://nodejs.org/en/docs"> <img src={node} className=" xxs:ml-20 w-[50%] h-[90%] ml-60 xs:ml-[85px]
-        " alt="" /></a>
-      </span>
-    </div>
-    <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
-    <span className="flex justify-center">
-       <a href="https://expressjs.com/en/5x/api.html"> <img src={express} className=" xxs:ml-20 w-[50%] h-[90%] ml-60 xs:ml-[85px]
-        " alt="" /></a>
-      </span>
-    </div>
+<div className="flex justify-center flex-row flex-wrap">
+  
 
-    <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
-    <span className="flex justify-center">
-       <a href="https://legacy.reactjs.org/docs/getting-started.html"> <img src={react} className=" xxs:ml-20 w-[50%] h-[90%] ml-60  xs:ml-[85px]
-        " alt="" /></a>
-      </span>
-    </div>
-  </Carousel>
+<img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
+          
+
+<img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
+          
+
+<img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
+          
+
+<img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg" />
+
+<img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" />
+
+<img  className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
+
+<img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
+          
+   
+<img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" />
+          
+
+<img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" />
+
+
+<img  className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" />
+                      
+   
+<img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
+                 
+          
 </div>
 </div>
 
 
 <div className="flex justify-center mb-[2%] mt-[5%]">
-<h1 id='certifications' className="text-5xl transition-all duration-200 ease-in-out hover:tracking-widest cursor-pointer xxs:mt-[40%]">
+<h1 id='certifications' className="xs:text-3xl xxs:text-2xl text-5xl transition-all duration-200 ease-in-out hover:tracking-widest cursor-pointer xxs:mt-[40%]">
   &#x2BC1; Certificates &#x2BC1;</h1>
 </div>
 
 
 <div className="flex justify-center flex-row flex-wrap-reverse">
 <div className="max-w-sm ml-[10%] transition duration-200 h-[50%]  rounded-2xl  hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
-  <Card imgSrc={udemy} className="xxs:mt-2 xs:mt-4">
+  <Card imgSrc={udemy} className="xxs:mt-4 xs:mt-4">
     <a href="https://www.udemy.com/certificate/UC-5f5c6928-c62b-4020-9f1f-58124763e3e3/">
     <h6 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
       See certificate
@@ -166,7 +169,7 @@ const Test = () => {
 
 
 <div className="max-w-sm ml-[10%] transition duration-200 h-[50%]  rounded-2xl  hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
-  <Card imgSrc={google} className="xxs:mt-2 xs:mt-4">
+  <Card imgSrc={google} className="xxs:mt-4 xs:mt-4">
     <a href="https://www.cloudskillsboost.google/public_profiles/9b7d27ce-d52e-4421-8b38-9b3f1fa1b7fc">
     <h6 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
       See certificate
@@ -180,14 +183,16 @@ const Test = () => {
 
 
 <div className="flex justify-center mb-[2%] mt-[5%]">
-<h1 id='experience' className="text-5xl transition-all duration-200 ease-in-out hover:tracking-widest cursor-pointer xxs:mt-[40%]">
+<h1 id='experience' className="xs:text-3xl xxs:text-2xl text-5xl transition-all duration-200 ease-in-out hover:tracking-widest cursor-pointer xxs:mt-[40%]">
   &#x2BC1; Experience &#x2BC1;</h1>
 </div>
 
 
 <div className="flex justify-center flex-row flex-wrap-reverse">
+
+
 <div className="max-w-sm ml-[10%] transition duration-200 h-[50%]  rounded-2xl  hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
-  <Card imgSrc={aiesec} className="xxs:mt-2 xs:mt-3 ">
+  <Card imgSrc={aiesec} className="xxs:mt-4 xs:mt-3 ">
     <h6 className="text-lg tracking-tight text-gray-900 dark:text-white">
       Member of IGT Team AIESEC surat conducted meetings with international AIESEC  firms 
       for exchange of interns.
@@ -196,8 +201,8 @@ const Test = () => {
 </div>
 
 
-<div className="max-w-sm ml-[10%] transition duration-200 h-[50%] mt-5  rounded-2xl  hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
-  <Card imgSrc={innovate} className="xxs:mt-2 xs:mt-3" >
+<div className="max-w-sm ml-[10%] transition duration-200 h-[50%] rounded-2xl  hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
+  <Card imgSrc={innovate} className="xxs:mt-4 xs:mt-3" >
     <h6 className="text-lg tracking-tight text-gray-900 dark:text-white">
       Conducted door-to-door surveys and created awareness regarding 
       dry and wet waste  uder Innovate4India NGO.
@@ -207,7 +212,7 @@ const Test = () => {
 
 
 <div className="max-w-sm ml-[10%] transition duration-200 h-[50%]  rounded-2xl  hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
-  <Card imgSrc={coordinator} className="xxs:mt-2 xs:mt-3" >
+  <Card imgSrc={coordinator} className="xxs:mt-4 xs:mt-3" >
     <h6 className="text-lg tracking-tight text-gray-900 dark:text-white">
       Hosted a web based tech event in my college tech-fest named Updates.
     </h6>
@@ -216,7 +221,7 @@ const Test = () => {
 
 
 <div className="max-w-sm ml-[10%] transition duration-200 h-[50%]  rounded-2xl  hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
-  <Card imgSrc={niyukti} className="xxs:mt-2 xs:mt-3" >
+  <Card imgSrc={niyukti} className="xxs:mt-4 xs:mt-3" >
     <h6 className="text-lg tracking-tight text-gray-900 dark:text-white">
       Stood first in a mock interview based evnent in my college tech-fest
       named Updates.
@@ -228,7 +233,7 @@ const Test = () => {
 
 
 <div className="flex justify-center mb-[2%] mt-[5%]">
-<h1 id='projects' className="text-5xl transition-all duration-200 ease-in-out hover:tracking-widest cursor-pointer xxs:mt-[40%]">
+<h1 id='projects' className="xs:text-3xl xxs:text-2xl text-5xl transition-all duration-200 ease-in-out hover:tracking-widest cursor-pointer xxs:mt-[40%]">
   &#x2BC1; Projects &#x2BC1;</h1>
 </div>
 
@@ -289,14 +294,14 @@ const Test = () => {
   </li>
 
 
-  <li className="text-4xl mt-2 xs:text-2xl xxs:text-xl">&#128231; Mail me at:&nbsp; 
+  <li className="text-4xl mt-2 xs:text-2xl xxs:text-lg">&#128231; Mail me at:&nbsp; 
   <span className="text-2xl transition duration-200 text-[#ff3c78]  hover:scale-110 hover:cursor-pointer xs:text-xl xxs:text-lg ">
      asnaninishant2@gmail.com
     </span> 
   </li>
 
 
-  <li className="text-4xl mt-2 xs:text-2xl xxs:text-xl">&#128241; You can message me at:&nbsp; 
+  <li className="text-4xl mt-2 xs:text-2xl xxs:text-lg">&#128241; You can message me at:&nbsp; 
   <span className="text-2xl transition duration-200 text-[#ff3c78]  hover:scale-110 hover:cursor-pointer xs:text-xl xxs:text-lg ">
      <a href="https://www.linkedin.com/in/nishant-asnani-aa6093208/">Linkedin</a>  
     </span> 
