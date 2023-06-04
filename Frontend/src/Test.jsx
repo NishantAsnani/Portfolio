@@ -87,17 +87,14 @@ const Test = () => {
           </p>
           <div className="flex w-[100px] justify-between">
 
-            <a href="https://github.com/NishantAsnani" className={`${istheme==='dark'?"bg-white":"text-black"}`}>
+            <a href="https://www.github.com/NishantAsnani">
             
-            <img className="w-16 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
-            
+            <svg className="w-12 h-14 xxs:w-10 cursor-pointer xxs:h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="github"><path fill="#5C6BC0" d="M7.999 0C3.582 0 0 3.596 0 8.032a8.031 8.031 0 0 0 5.472 7.621c.4.074.546-.174.546-.387 0-.191-.007-.696-.011-1.366-2.225.485-2.695-1.077-2.695-1.077-.363-.928-.888-1.175-.888-1.175-.727-.498.054-.488.054-.488.803.057 1.225.828 1.225.828.714 1.227 1.873.873 2.329.667.072-.519.279-.873.508-1.074-1.776-.203-3.644-.892-3.644-3.969 0-.877.312-1.594.824-2.156-.083-.203-.357-1.02.078-2.125 0 0 .672-.216 2.2.823a7.633 7.633 0 0 1 2.003-.27 7.65 7.65 0 0 1 2.003.271c1.527-1.039 2.198-.823 2.198-.823.436 1.106.162 1.922.08 2.125.513.562.822 1.279.822 2.156 0 3.085-1.87 3.764-3.652 3.963.287.248.543.738.543 1.487 0 1.074-.01 1.94-.01 2.203 0 .215.144.465.55.386A8.032 8.032 0 0 0 16 8.032C16 3.596 12.418 0 7.999 0z"></path></svg>
           
             </a>
           
             <a href="https://www.linkedin.com/in/nishant-asnani-aa6093208/" className={`${istheme==='dark'?"text-white":"text-black"}`} >
-            <img className="w-12 h-14 ml-7 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" />
-          
-
+            <img className="w-10 h-14 ml-7 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" />
             </a>
           </div>
           </p>
@@ -125,7 +122,12 @@ const Test = () => {
 
 <img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg" />
 
-<img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" />
+{
+  istheme==='light'?<img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" />:
+
+  <img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/express-colored-dark.svg"></img>
+}
+
 
 <img  className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
 
@@ -285,21 +287,21 @@ const Test = () => {
 
 <div className="flex justify-center">
   <ul>
-  <li className="text-4xl xs:text-2xl xxs:text-xl">	&#9742; You can call me at: &nbsp; 
+  <li className="text-3xl xs:text-2xl xxs:text-xl">	&#9742; You can call me at: &nbsp; 
   <span className="text-2xl transition duration-200 text-[#ff3c78]  hover:scale-110 hover:cursor-pointer xs:text-xl xxs:text-lg ">
   (+91) 7043680624
     </span> 
   </li>
 
 
-  <li className="text-4xl mt-2 xs:text-2xl xxs:text-lg">&#128231; Mail me at:&nbsp; 
-  <span className="text-2xl transition duration-200 text-[#ff3c78]  hover:scale-110 hover:cursor-pointer xs:text-xl xxs:text-lg ">
+  <li className="text-3xl mt-2 xs:text-2xl xxs:text-lg">&#128231; Mail me at:&nbsp; 
+ <span className="text-2xl transition duration-200 text-[#ff3c78]  hover:scale-110 hover:cursor-pointer xs:text-xl xxs:text-lg ">
      asnaninishant2@gmail.com
     </span> 
   </li>
 
 
-  <li className="text-4xl mt-2 xs:text-2xl xxs:text-lg">&#128241; You can message me at:&nbsp; 
+  <li className="text-3xl mt-2 xs:text-2xl xxs:text-lg">&#128241; You can message me at:&nbsp; 
   <span className="text-2xl transition duration-200 text-[#ff3c78]  hover:scale-110 hover:cursor-pointer xs:text-xl xxs:text-lg ">
      <a href="https://www.linkedin.com/in/nishant-asnani-aa6093208/">Linkedin</a>  
     </span> 
