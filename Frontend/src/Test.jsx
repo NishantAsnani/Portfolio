@@ -123,9 +123,8 @@ const Test = () => {
 <img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg" />
 
 {
-  istheme==='light'?<img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" />:
-
-  <img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/express-colored-dark.svg"></img>
+  istheme==='dark'?<img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/express-colored-dark.svg"></img>:  
+  <img className="w-20 h-14 xxs:w-10 cursor-pointer xxs:h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" />
 }
 
 
@@ -188,7 +187,7 @@ const Test = () => {
 </div>
 
 
-<div className="flex justify-center flex-row flex-wrap-reverse">
+<div className="flex justify-center flex-wrap">
 
 
 <div className="max-w-sm ml-[10%] transition duration-200 h-[50%]  rounded-2xl  hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
@@ -202,7 +201,7 @@ const Test = () => {
 
 
 <div className="max-w-sm ml-[10%] transition duration-200 h-[50%] rounded-2xl  hover:shadow-[#ff3c78] hover:shadow-lg hover:scale-110 hover:cursor-pointer">
-  <Card imgSrc={innovate} className="xxs:mt-4 xs:mt-3" >
+  <Card imgSrc={innovate} className="xxs:mt-4 xs:mt-3 -translate-y-5" >
     <h6 className="text-lg tracking-tight text-gray-900 dark:text-white">
       Conducted door-to-door surveys and created awareness regarding 
       dry and wet waste  uder Innovate4India NGO.
