@@ -11,7 +11,7 @@ import facebook from '/facebook_proj.png'
 import yelp_camp from '/yelpcamp_proj.png'
 import Rentofy from '/Rentofy_proj.png'
 import portfolio from '/portfolio_proj.png'
-import resume from '/Nishant_Asnani_Resume.pdf'
+import resume from '/Nishant Asnani_Resume.pdf'
 
 const Test = () => {
   const [istheme,Setistheme]=useState("dark-theme");
