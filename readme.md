@@ -15,31 +15,27 @@ This repository contains the source code for my personal portfolio website. The 
 9. [Author](#author)
 
 ## Features
-- **Theme Switching:** Toggle between light and dark themes.
-- **Skills Section:** Display of technical skills using icons.
+
 - **Certifications:** Showcase of certifications with links to view certificates.
 - **Experience:** Summary of work experience and involvement in organizations.
 - **Projects:** Display of portfolio projects with images and links.
-- **Contact:** Contact information and social media links.
+- **Contact:** Diaplay of social media links.
 
 ## Demo
-https://portfolio-k67q.vercel.app/
+https://nishant-developer.vercel.app/
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/NishantAsnani/Your-Portfolio-Website.git`
-2. Navigate to the project directory: `cd Your-Portfolio-Website`
+1. Clone the repository: `git clone https://github.com/NishantAsnani/Portfolio`
+2. Navigate to the project directory: `cd Portfolio/Frontend`
 3. Install dependencies: `npm install`
 
 ## Usage
 1. Start the development server: `npm start`
-2. Open your browser and go to `http://localhost:3000` to view the website.
+2. Open your browser and go to `http://localhost:5173` to view the website.
 
 ## Technologies Used
 - React.js: Frontend framework for building user interfaces.
-- HTML/CSS: Markup and styling languages for web development.
-- JavaScript: Programming language for interactive web functionality.
-- [Flowbite React](https://www.flowbite.com/react): UI component library for React.
-- [Optional] Additional libraries or tools used in the project.
+- TailwindCSS: For styling Purposes
 
 ## Contributing
 Contributions are welcome! Here's how you can contribute:
@@ -49,8 +45,7 @@ Contributions are welcome! Here's how you can contribute:
 - Push to the branch: `git push origin feature-new-feature`
 - Submit a pull request
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 
 ## Author
 - [Nishant Asnani](https://github.com/NishantAsnani)
