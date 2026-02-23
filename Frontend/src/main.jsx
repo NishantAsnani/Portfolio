@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Test from './Test'
 import './index.css'
+import Portfolio from './Portfolio'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Test />
+    <Portfolio />
   </React.StrictMode>,
 )
