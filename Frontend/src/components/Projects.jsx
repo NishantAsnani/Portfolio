@@ -50,6 +50,15 @@ const projects = [
     github: "https://github.com/NishantAsnani/Rentofy",
     color: "border-pink-500",
   },
+  {
+    title: "Resume Builder",
+    category: "Productivity",
+    tags: ["Full Stack"],
+    description: "A full-stack resume builder application that allows users to create, customize, and download professional resumes with ease.",
+    tech: ["React", "Node.js", "Express", "PDFKit"],
+    github: "https://github.com/NishantAsnani/Resume_Builder",
+    color: "border-pink-500",
+  },
 ];
 
 const filterTags = ["All", "AI", "Full Stack", "Cloud", "NPM Package"];
