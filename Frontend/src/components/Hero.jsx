@@ -195,8 +195,7 @@ const Hero = () => {
           flexWrap: "wrap",
         }}>
           {[
-            { value: "3+", label: "Years Experience" },
-            { value: "10+", label: "Projects Built" },
+            { value: "1.5", label: "Years Experience" },
             { value: "5+", label: "Technologies" },
           ].map(({ value, label }) => (
             <div key={label}>
