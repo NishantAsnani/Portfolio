@@ -10,27 +10,37 @@ const Contact = () => {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setStatus('sending')
-    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-    const ENV=import.meta.env.VITE_ENVIRONMENT
-    try {
-    const url=ENV === 'production' ? 'api/contact' : `${BACKEND_URL}/contact`
-      const res = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      if (res.ok) {
-        setStatus('sent')
-        setForm({ name: '', email: '', message: '' })
-      } else {
-        setStatus('error')
-      }
-    } catch {
-      setStatus('error')
+  e.preventDefault();
+  setStatus('sending');
+
+  // Use fallbacks to prevent 'undefined' string injection
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+  const environment = import.meta.env.VITE_ENVIRONMENT || 'production';
+
+  try {
+    // Construct the URL safely
+    // If it's production, ensure we use a clean relative path
+    const url = environment === 'production' 
+      ? '/api/contact' 
+      : `${backendUrl}/contact`;
+
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    });
+
+    if (res.ok) {
+      setStatus('sent');
+      setForm({ name: '', email: '', message: '' });
+    } else {
+      setStatus('error');
     }
+  } catch (err) {
+    console.error("Submission failed:", err);
+    setStatus('error');
   }
+};
 
   const inputStyle = {
     width: '100%',
