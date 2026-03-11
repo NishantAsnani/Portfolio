@@ -13,7 +13,8 @@ const Contact = () => {
     e.preventDefault()
     setStatus('sending')
     try {
-      const res = await fetch(`${BACKEND_URL}/contact`, {
+    const url=import.meta.env.ENV === 'production' ? 'api/contact' : `${BACKEND_URL}/contact`
+      const res = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
