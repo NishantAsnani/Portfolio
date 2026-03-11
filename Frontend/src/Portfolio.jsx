@@ -6,6 +6,8 @@ import Hero from "./components/Hero";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Certifications from "./components/Certifications";
+import Skills from "./components/Skills";
+import Contact from "./components/Contact";
 import { useEffect,useState } from "react";
 
 
@@ -87,6 +89,9 @@ const Portfolio = () => {
 
       {/* 🚀 Hero Section */}
       <Hero />
+
+
+      <Skills />
       
 
       {/* 💼 Experience Section */}
@@ -103,8 +108,12 @@ const Portfolio = () => {
       {/* 🎓 Education Section */}
       <Education/>
 
+      <Contact/>
+
       {/* Footer */}
       <Footer />
+
+      
     </div>
   );
 };

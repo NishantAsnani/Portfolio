@@ -1,52 +1,122 @@
 import React from 'react'
-import { SiGooglecloud, SiUdemy } from "react-icons/si";
 import { FaExternalLinkAlt } from "react-icons/fa";
+
 const certifications = [
-    {
-      title: "Web Development Bootcamp",
-      issuer: "Udemy",
-      icon: <SiUdemy />,
-      link: "https://www.udemy.com/certificate/UC-5f5c6928-c62b-4020-9f1f-58124763e3e3/",
-      color: "text-purple-400"
-    },
-    {
-      title: "Google Cloud Skills",
-      issuer: "Google",
-      icon: <SiGooglecloud />,
-      link: "https://www.cloudskillsboost.google/public_profiles/9b7d27ce-d52e-4421-8b38-9b3f1fa1b7fc",
-      color: "text-blue-400"
-    }
-  ];
+  {
+    title: "Web Development Bootcamp",
+    issuer: "Udemy",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Udemy_logo.svg",
+    link: "https://www.udemy.com/certificate/UC-5f5c6928-c62b-4020-9f1f-58124763e3e3/",
+  },
+  {
+    title: "Google Cloud Skills",
+    issuer: "Google Cloud",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+    link: "https://www.cloudskillsboost.google/public_profiles/9b7d27ce-d52e-4421-8b38-9b3f1fa1b7fc",
+  },
+];
 
 const Certifications = () => {
   return (
-    <section id="certifications" className="py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Certifications</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {certifications.map((cert, index) => (
-              <div key={index} className="flex items-start gap-5 p-6 rounded-xl border border-slate-800 bg-slate-900/50 hover:border-cyan-500/30 transition-all hover:-translate-y-1 group">
-                <div className={`text-5xl ${cert.color} group-hover:scale-110 transition-transform`}>
-                  {cert.icon}
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-white leading-tight mb-1">{cert.title}</h3>
-                  <p className="text-slate-400 text-sm mb-3">{cert.issuer}</p>
-                  <a 
-                    href={cert.link} 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="inline-flex items-center text-xs font-bold text-cyan-500 hover:text-cyan-400 uppercase tracking-wider"
-                  >
-                    View Credential <FaExternalLinkAlt className="ml-2 w-3 h-3" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+    <section
+      id="certifications"
+      style={{ background: "rgb(10, 10, 10)", padding: "96px 24px", fontFamily: "'Inter', sans-serif" }}
+    >
+      <div style={{ maxWidth: "860px", margin: "0 auto" }}>
+
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: "52px" }}>
+          <p style={{
+            fontSize: "11px", fontWeight: 700, letterSpacing: "0.18em",
+            textTransform: "uppercase", color: "#22d3ee", marginBottom: "14px",
+          }}>
+            Certifications
+          </p>
+          <h2 style={{
+            fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 800,
+            color: "#ffffff", margin: 0, letterSpacing: "-0.02em",
+          }}>
+            Credentials &amp; <span style={{ color: "#22d3ee" }}>Licenses</span>
+          </h2>
         </div>
-      </section>
-  )
+
+        {/* Cards */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "16px",
+        }}>
+          {certifications.map((cert, index) => (
+            <div
+              key={index}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "20px",
+                padding: "24px 28px",
+                borderRadius: "14px",
+                background: "#111111",
+                border: "1.5px solid #1e1e1e",
+                transition: "border-color 0.2s ease, transform 0.2s ease",
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = "rgba(34,211,238,0.25)";
+                e.currentTarget.style.transform = "translateY(-3px)";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = "#1e1e1e";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
+              {/* Icon */}
+              <div style={{
+                flexShrink: 0,
+                width: "60px", height: "60px",
+                borderRadius: "14px",
+                background: "#1a1a1a",
+                border: "1.5px solid #1e1e1e",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}>
+                <img
+                  src={cert.icon}
+                  alt={cert.issuer}
+                  width={34}
+                  height={34}
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
+
+              {/* Info */}
+              <div style={{ flex: 1 }}>
+                <h3 style={{ fontSize: "15px", fontWeight: 700, color: "#ffffff", margin: "0 0 4px", lineHeight: 1.4 }}>
+                  {cert.title}
+                </h3>
+                <p style={{ fontSize: "12.5px", color: "#4a6a8a", margin: "0 0 14px", fontWeight: 500 }}>
+                  {cert.issuer}
+                </p>
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: "6px",
+                    fontSize: "11px", fontWeight: 700, color: "#22d3ee",
+                    textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase",
+                    transition: "opacity 0.2s",
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.opacity = "0.7"}
+                  onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+                >
+                  View Credential <FaExternalLinkAlt size={10} />
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
 }
 
 export default Certifications
