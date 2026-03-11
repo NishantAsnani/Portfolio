@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FaGithub, FaLinkedin, FaEnvelope, FaLocationArrow, FaPhone,FaCode } from 'react-icons/fa'
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000'
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const ENV=import.meta.env.VITE_ENVIRONMENT
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [status, setStatus] = useState(null)
@@ -13,7 +14,7 @@ const Contact = () => {
     e.preventDefault()
     setStatus('sending')
     try {
-    const url=import.meta.env.ENV === 'production' ? 'api/contact' : `${BACKEND_URL}/contact`
+    const url=ENV === 'production' ? 'api/contact' : `${BACKEND_URL}/contact`
       const res = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
