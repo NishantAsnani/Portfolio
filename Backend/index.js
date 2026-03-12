@@ -11,17 +11,20 @@ app.use(express.json());
 app.post('/contact', (req, res) => {
     const { name, email, message } = req.body;
     try{
-        console.log("Received contact form submission:");
+    console.log("Received contact form submission:");
     console.log("Name:", name);
     console.log("Email:", email);
     console.log("Message:", message);
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
+        family: 4,
         auth: {
             user: process.env.EMAIL,
             pass: process.env.PASSWORD
-        }
-    });
+            }
+        });
 
     const mailOptions = {
         from: process.env.BOT_EMAIL,         
