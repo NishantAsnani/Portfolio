@@ -14,15 +14,10 @@ const Contact = () => {
   setStatus('sending');
 
   // Use fallbacks to prevent 'undefined' string injection
-  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
-  const environment = import.meta.env.VITE_ENVIRONMENT || 'production';
+  const url = import.meta.env.VITE_BACKEND_URL;
 
   try {
-    // Construct the URL safely
-    // If it's production, ensure we use a clean relative path
-    const url = environment === 'production' 
-      ? '/api/contact' 
-      : `${backendUrl}/contact`;
+    
 
     const res = await fetch(url, {
       method: 'POST',
