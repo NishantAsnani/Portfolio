@@ -58,6 +58,15 @@ const projects = [
     github: "https://github.com/NishantAsnani/Resume_Builder",
     accent: "#22d3ee",
   },
+  {
+    title: "AlgoArena.IO",
+    category: "Skill Building",
+    tags: ["Full Stack", "AI"],
+    description: "A competitive programming platform that offers algorithmic challenges, real-time code execution, and AI-generated hints to help users improve their coding skills.",
+    tech: ["React", "Node.js", "Express", "Judge0","Groq AI"],
+    github: "https://github.com/NishantAsnani/GenAI_AlgoArena",
+    accent: "#22d3ee",
+  },
 ];
 
 const filterTags = ["All", "AI", "Full Stack", "Cloud", "NPM Package"];

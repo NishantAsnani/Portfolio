@@ -17,6 +17,8 @@ const skills = [
   { name: "Linux",      category: "DevOps",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
   { name: "Git",        category: "Tools",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
   { name: "GitHub",     category: "Tools",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+  {name: "Docker",      category: "DevOps",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+  {name:"Nginx", category:"DevOps", icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
 ];
 
 const categories = ["All", "Languages", "Web / App Dev", "Databases", "DevOps", "Tools"];

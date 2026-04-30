@@ -67,8 +67,8 @@ const Contact = () => {
     {
       icon: <FaPhone size={16} />,
       label: 'Phone',
-      value: '+91 98250 98250',
-      href: 'tel:+919825098250',
+      value: '+91 7043680624',
+      href: 'tel:+917043680624',
     },
   ]
 
