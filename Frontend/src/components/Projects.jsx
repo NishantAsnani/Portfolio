@@ -18,7 +18,7 @@ const projects = [
     tags: ["NPM Package"],
     description: "A lightweight command-line tool designed to give boilerplate code and clean folder structure for backend projects using Node.js, Express, and MongoDB.",
     tech: ["Node.js", "Express.js", "MongoDB"],
-    link: "https://www.npmjs.com/package/be-ignite",
+    link: "https://www.npmjs.com/package/beignite",
     github: "https://github.com/NishantAsnani/be-ignite",
     accent: "#f97316",
   },

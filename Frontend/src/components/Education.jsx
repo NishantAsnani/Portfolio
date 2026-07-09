@@ -5,13 +5,13 @@ const education = [
     degree: "M.Tech in Software Systems",
     school: "Dhirubhai Ambani University (DA-IICT)",
     year: "2025 - 2027",
-    score: "Pursuing"
+    score: "CPI: 8.42"
   },
   {
     degree: "B.E. in Computer Engineering",
     school: "Sarvajanik College (SCET)",
     year: "2020 - 2024",
-    score: "CGPA: 8.99"
+    score: "CPI: 8.99"
   }
 ];
 
