@@ -1,231 +1,191 @@
-import React from 'react'
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowDown } from "lucide-react";
 
 const Hero = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const gridY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
+  // Magnetic button effect
+  const [magnet, setMagnet] = useState({ x: 0, y: 0 });
+  const btnRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    if (!btnRef.current) return;
+    const rect = btnRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    setMagnet({ x: x * 0.15, y: y * 0.15 });
+  };
+
+  const resetMagnet = () => setMagnet({ x: 0, y: 0 });
+
   return (
     <section
       id="home"
-      style={{ background: "rgb(10, 10, 10)" }}
-      className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden"
+      ref={containerRef}
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
     >
-      {/* Subtle grid texture */}
-      <div
+      {/* Animated grid background */}
+      <motion.div
+        style={{ y: gridY }}
         className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(34,211,238,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(34,211,238,0.03) 1px, transparent 1px)
-          `,
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      {/* Single soft cyan glow — top right only */}
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          top: "-60px",
-          right: "-60px",
-          width: "420px",
-          height: "420px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(34,211,238,0.07) 0%, transparent 70%)",
-        }}
-      />
-
-      <div className="max-w-4xl mx-auto z-10" style={{ textAlign: "left" }}>
-
-        {/* Status badge */}
-        <div
-          className="inline-flex items-center gap-2 mb-8"
-          style={{
-            padding: "6px 14px",
-            borderRadius: "999px",
-            border: "1px solid rgba(34,211,238,0.2)",
-            background: "rgba(34,211,238,0.05)",
-          }}
+      >
+        <svg
+          className="absolute inset-0 w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <span style={{
-            width: "7px", height: "7px", borderRadius: "50%",
-            background: "#22d3ee",
-            boxShadow: "0 0 6px #22d3ee",
-            display: "inline-block",
-          }} />
-          <span style={{ color: "#22d3ee", fontSize: "12px", fontWeight: 600, letterSpacing: "0.08em" }}>
-            AVAILABLE FOR OPPORTUNITIES
+          <defs>
+            <pattern
+              id="hero-grid"
+              x="0"
+              y="0"
+              width="60"
+              height="60"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 60 0 L 0 0 0 60"
+                fill="none"
+                stroke="rgba(255,255,255,0.03)"
+                strokeWidth="0.5"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#hero-grid)" />
+        </svg>
+
+        {/* Subtle accent glow */}
+        <div
+          className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full"
+          style={{
+            background: "radial-gradient(circle, rgba(255,122,24,0.04) 0%, transparent 70%)",
+          }}
+        />
+      </motion.div>
+
+      {/* Content */}
+      <motion.div
+        style={{ opacity }}
+        className="relative z-10 max-w-[1200px] mx-auto w-full px-6 md:px-10 pt-32 md:pt-0"
+      >
+        {/* Status badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="flex items-center gap-2 mb-10"
+        >
+          <div className="w-[6px] h-[6px] rounded-full bg-accent animate-pulse-slow" />
+          <span className="text-[11px] font-medium tracking-[0.15em] uppercase text-text-muted">
+            Available for opportunities
           </span>
+        </motion.div>
+
+        {/* Role label */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="text-accent text-[14px] font-medium tracking-[0.1em] uppercase mb-5"
+        >
+          Backend Engineer
+        </motion.p>
+
+        {/* Main title — Name */}
+        <div className="mb-8">
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="font-heading font-bold tracking-[-0.04em] leading-[0.9] text-text-primary"
+            style={{ fontSize: "clamp(52px, 11vw, 130px)" }}
+          >
+            NISHANT
+          </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="font-heading font-bold tracking-[-0.04em] leading-[0.9]"
+            style={{
+              fontSize: "clamp(52px, 11vw, 130px)",
+              WebkitTextStroke: "1.5px #F5F5F5",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            ASNANI
+          </motion.h1>
         </div>
 
-        {/* Name */}
-        <p style={{
-          fontSize: "15px",
-          color: "#4a6a8a",
-          fontWeight: 500,
-          letterSpacing: "0.04em",
-          marginBottom: "12px",
-          fontFamily: "'Inter', sans-serif",
-        }}>
-          Hi, I'm
-        </p>
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="text-text-muted text-[15px] md:text-[17px] leading-relaxed max-w-[460px] mb-12"
+        >
+          Building scalable backend systems,
+          <br />
+          cloud-native applications,
+          <br />
+          and AI-powered developer tools.
+        </motion.p>
 
-        <h1 style={{
-          fontSize: "clamp(48px, 8vw, 80px)",
-          fontWeight: 800,
-          color: "#ffffff",
-          lineHeight: 1.05,
-          letterSpacing: "-0.03em",
-          margin: "0 0 8px",
-          fontFamily: "'Inter', sans-serif",
-        }}>
-          Nishant Asnani
-        </h1>
-
-        <h2 style={{
-          fontSize: "clamp(24px, 4vw, 40px)",
-          fontWeight: 700,
-          color: "#22d3ee",
-          lineHeight: 1.1,
-          letterSpacing: "-0.02em",
-          margin: "0 0 28px",
-          fontFamily: "'Inter', sans-serif",
-        }}>
-          Full Stack Engineer
-        </h2>
-
-        {/* Divider line */}
-        <div style={{
-          width: "48px",
-          height: "3px",
-          background: "#22d3ee",
-          borderRadius: "2px",
-          marginBottom: "28px",
-        }} />
-
-        <p style={{
-          fontSize: "16px",
-          color: "#4a6a8a",
-          maxWidth: "520px",
-          lineHeight: 1.8,
-          marginBottom: "44px",
-          fontFamily: "'Inter', sans-serif",
-        }}>
-          Building scalable systems and AI-powered tools. I design cloud-native architectures and craft seamless user experiences with modern tech.
-        </p>
-
-        {/* CTAs + Social */}
-        <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="flex items-center gap-4 flex-wrap"
+        >
           <a
+            ref={btnRef}
             href="#projects"
+            onMouseMove={handleMouseMove}
+            onMouseLeave={resetMagnet}
+            className="magnetic-btn px-7 py-3 bg-accent text-primary font-semibold text-[14px] rounded-md hover:opacity-90 transition-opacity"
             style={{
-              padding: "12px 28px",
-              borderRadius: "8px",
-              background: "#22d3ee",
-              color: "#000",
-              fontWeight: 700,
-              fontSize: "14px",
-              textDecoration: "none",
-              letterSpacing: "0.02em",
-              transition: "opacity 0.2s",
-              fontFamily: "'Inter', sans-serif",
+              transform: `translate(${magnet.x}px, ${magnet.y}px)`,
             }}
-            onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
-            onMouseLeave={e => e.currentTarget.style.opacity = "1"}
           >
             View Projects
           </a>
 
           <a
             href="#contact"
-            style={{
-              padding: "11px 28px",
-              borderRadius: "8px",
-              background: "transparent",
-              color: "#ffffff",
-              fontWeight: 600,
-              fontSize: "14px",
-              textDecoration: "none",
-              border: "1.5px solid #1a3a50",
-              letterSpacing: "0.02em",
-              transition: "border-color 0.2s, color 0.2s",
-              fontFamily: "'Inter', sans-serif",
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.borderColor = "#22d3ee";
-              e.currentTarget.style.color = "#22d3ee";
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.borderColor = "#1a3a50";
-              e.currentTarget.style.color = "#ffffff";
-            }}
+            className="magnetic-btn px-7 py-3 border border-border text-text-primary font-medium text-[14px] rounded-md hover:border-accent hover:text-accent transition-all duration-200"
           >
-            Get In Touch
+            Contact
           </a>
+        </motion.div>
+      </motion.div>
 
-          {/* Divider */}
-          <div style={{ width: "1px", height: "28px", background: "#1a3a50", margin: "0 4px" }} />
-
-          <a
-            href="https://github.com/NishantAsnani"
-            target="_blank" rel="noreferrer"
-            style={{ color: "#4a6a8a", transition: "color 0.2s" }}
-            onMouseEnter={e => e.currentTarget.style.color = "#ffffff"}
-            onMouseLeave={e => e.currentTarget.style.color = "#4a6a8a"}
-          >
-            <FaGithub size={22} />
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/nishant-asnani-aa6093208/"
-            target="_blank" rel="noreferrer"
-            style={{ color: "#4a6a8a", transition: "color 0.2s" }}
-            onMouseEnter={e => e.currentTarget.style.color = "#22d3ee"}
-            onMouseLeave={e => e.currentTarget.style.color = "#4a6a8a"}
-          >
-            <FaLinkedin size={22} />
-          </a>
-        </div>
-
-        {/* Bottom stats */}
-        <div style={{
-          display: "flex",
-          gap: "40px",
-          marginTop: "64px",
-          paddingTop: "32px",
-          borderTop: "1px solid #0d1f30",
-          flexWrap: "wrap",
-        }}>
-          {[
-            { value: "1.5", label: "Years Experience" },
-            { value: "5+", label: "Technologies" },
-          ].map(({ value, label }) => (
-            <div key={label}>
-              <div style={{
-                fontSize: "26px",
-                fontWeight: 800,
-                color: "#ffffff",
-                letterSpacing: "-0.02em",
-                fontFamily: "'Inter', sans-serif",
-                lineHeight: 1,
-                marginBottom: "4px",
-              }}>
-                {value}
-              </div>
-              <div style={{
-                fontSize: "12px",
-                color: "#4a6a8a",
-                fontWeight: 500,
-                letterSpacing: "0.04em",
-                fontFamily: "'Inter', sans-serif",
-              }}>
-                {label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-      </div>
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
+        <span className="text-[10px] tracking-[0.2em] uppercase text-text-dim">
+          Scroll
+        </span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ArrowDown size={14} className="text-text-dim" />
+        </motion.div>
+      </motion.div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

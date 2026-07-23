@@ -1,162 +1,188 @@
-import React, { useState } from "react";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
-const skills = [
-  { name: "Python",     category: "Languages",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-  { name: "C++",        category: "Languages",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
-  { name: "JavaScript", category: "Languages",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-  { name: "C", category: "Languages",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
-  { name: "React",      category: "Web / App Dev", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-  { name: "Node.js",    category: "Web / App Dev", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-  { name: "Tailwind",   category: "Web / App Dev", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
-  { name: "Redux",   category: "Web / App Dev", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg" },
-  { name: "Express.js",   category: "Web / App Dev", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" },
-  { name: "MongoDB",    category: "Databases",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-  { name: "MySQL",      category: "Databases",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-  { name: "AWS",        category: "DevOps",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
-  { name: "DynamoDB",   category: "Databases",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dynamodb/dynamodb-original.svg" },
-  { name: "Linux",      category: "DevOps",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
-  { name: "Git",        category: "Tools",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-  { name: "GitHub",     category: "Tools",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-  {name: "Docker",      category: "DevOps",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-  {name:"Nginx", category:"DevOps", icon:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
+const skillGroups = [
+  {
+    label: "Languages",
+    items: [
+      { name: "JavaScript", note: "Primary", icon: "javascript" },
+      { name: "Python", note: "Data & scripting", icon: "python" },
+      { name: "C++", note: "DSA & competitive", icon: "cplusplus" },
+      { name: "C", note: "Fundamentals", icon: "c" },
+    ],
+  },
+  {
+    label: "Backend",
+    items: [
+      { name: "Node.js", note: "Runtime", icon: "nodejs" },
+      { name: "Express.js", note: "Framework", icon: "express" },
+      { name: "REST APIs", note: "Architecture", icon: null },
+    ],
+  },
+  {
+    label: "Frontend",
+    items: [
+      { name: "React", note: "UI library", icon: "react" },
+      { name: "Redux", note: "State management", icon: "redux" },
+      { name: "Tailwind CSS", note: "Styling", icon: null },
+    ],
+  },
+  {
+    label: "Databases",
+    items: [
+      { name: "MongoDB", note: "NoSQL", icon: "mongodb" },
+      { name: "DynamoDB", note: "AWS NoSQL", icon: "dynamodb" },
+      { name: "MySQL", note: "Relational", icon: "mysql" },
+    ],
+  },
+  {
+    label: "Cloud & DevOps",
+    items: [
+      { name: "AWS", note: "Cloud platform", icon: "amazonwebservices" },
+      { name: "Docker", note: "Containerization", icon: "docker" },
+      { name: "Nginx", note: "Reverse proxy", icon: "nginx" },
+      { name: "Linux", note: "Systems", icon: "linux" },
+    ],
+  },
+  {
+    label: "Tools",
+    items: [
+      { name: "Git", note: "Version control", icon: "git" },
+      { name: "GitHub", note: "Collaboration", icon: "github" },
+    ],
+  },
 ];
 
-const categories = ["All", "Languages", "Web / App Dev", "Databases", "DevOps", "Tools"];
+const darkIcons = new Set(["express", "github", "nginx", "amazonwebservices"]);
 
-export default function Skills() {
-  const [filter, setFilter] = useState("All");
-  const [animating, setAnimating] = useState(false);
-
-  const handleFilter = (cat) => {
-    if (cat === filter) return;
-    setAnimating(true);
-    setTimeout(() => {
-      setFilter(cat);
-      setAnimating(false);
-    }, 180);
-  };
-
-  const filtered = filter === "All" ? skills : skills.filter(s => s.category === filter);
+const SkillTag = ({ name, note, icon }) => {
+  const [hovered, setHovered] = useState(false);
 
   return (
-    <section style={{
-      padding: "96px 24px",
-      background: "rgb(10, 10, 10)",
-      fontFamily: "'Inter', -apple-system, sans-serif",
-    }}>
-      <div style={{ maxWidth: "980px", margin: "0 auto" }}>
+    <motion.div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="relative cursor-default"
+      whileHover={{ y: -2 }}
+      transition={{ duration: 0.2 }}
+    >
+      <div
+        className="px-4 py-2.5 rounded-md text-[13px] font-medium transition-all duration-200 border inline-flex items-center gap-2"
+        style={{
+          background: hovered ? "rgba(255,122,24,0.06)" : "#121212",
+          borderColor: hovered ? "rgba(255,122,24,0.25)" : "#1e1e1e",
+          color: hovered ? "#FF7A18" : "#F5F5F5",
+        }}
+      >
+        {icon && (
+          <img
+            src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${icon}/${icon}-original.svg`}
+            alt=""
+            className={`w-4 h-4 ${darkIcons.has(icon) ? "devicon-dark" : ""}`}
+            style={{ opacity: hovered ? 1 : 0.5, transition: "opacity 0.2s" }}
+            loading="lazy"
+          />
+        )}
+        {name}
+      </div>
 
-        {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "52px" }}>
-          <p style={{
-            fontSize: "11px",
-            fontWeight: 700,
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            color: "#22d3ee",
-            marginBottom: "14px",
-          }}>
-            Skills
-          </p>
-          <h2 style={{
-            fontSize: "clamp(32px, 5vw, 46px)",
-            fontWeight: 800,
-            color: "#ffffff",
-            margin: "0 0 14px",
-            letterSpacing: "-0.02em",
-            lineHeight: 1.1,
-          }}>
-            Technical{" "}
-            <span style={{ color: "#22d3ee" }}>Expertise</span>
-          </h2>
-          <p style={{ color: "#4a6a8a", fontSize: "15px", margin: 0 }}>
-            Technologies and tools I work with
-          </p>
-        </div>
+      {/* Tooltip */}
+      <motion.div
+        initial={{ opacity: 0, y: 4, scale: 0.95 }}
+        animate={
+          hovered
+            ? { opacity: 1, y: 0, scale: 1 }
+            : { opacity: 0, y: 4, scale: 0.95 }
+        }
+        transition={{ duration: 0.15 }}
+        className="absolute left-1/2 -translate-x-1/2 -top-9 px-3 py-1 bg-secondary border border-border rounded text-[11px] text-text-muted whitespace-nowrap pointer-events-none z-10"
+      >
+        {note}
+      </motion.div>
+    </motion.div>
+  );
+};
 
-        {/* Filter Pills */}
-        <div style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "10px",
-          marginBottom: "44px",
-        }}>
-          {categories.map((cat) => {
-            const active = filter === cat;
-            return (
-              <button
-                key={cat}
-                onClick={() => handleFilter(cat)}
-                style={{
-                  padding: "7px 20px",
-                  borderRadius: "999px",
-                  border: active ? "1.5px solid #22d3ee" : "1.5px solid #1e1e1e",
-                  background: active ? "rgba(34,211,238,0.08)" : "transparent",
-                  color: active ? "#22d3ee" : "#4a6a8a",
-                  fontSize: "13px",
-                  fontWeight: 500,
-                  cursor: "pointer",
-                  transition: "all 0.2s ease",
-                  fontFamily: "inherit",
-                  outline: "none",
+const Skills = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section id="skills" className="py-28 md:py-36 px-6 md:px-10">
+      <div ref={ref} className="max-w-[1200px] mx-auto">
+        {/* Split layout: title left (sticky), skills right */}
+        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-16 lg:gap-24">
+          {/* Left — sticky title */}
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-[11px] font-medium tracking-[0.2em] uppercase text-accent mb-4"
+            >
+              Technical
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl tracking-[-0.03em] text-text-primary mb-4"
+            >
+              STACK
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-text-muted text-[14px] leading-relaxed"
+            >
+              Technologies and tools I use to build scalable systems.
+            </motion.p>
+          </div>
+
+          {/* Right — skill groups */}
+          <div className="flex flex-col gap-10">
+            {skillGroups.map((group, gi) => (
+              <motion.div
+                key={group.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  delay: gi * 0.06,
+                  duration: 0.5,
+                  ease: [0.16, 1, 0.3, 1],
                 }}
               >
-                {cat}
-              </button>
-            );
-          })}
-        </div>
+                {/* Group label */}
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="text-[11px] font-medium tracking-[0.15em] uppercase text-text-dim">
+                    {group.label}
+                  </span>
+                  <div className="flex-1 h-px bg-border" />
+                </div>
 
-        {/* Skills Grid */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(118px, 1fr))",
-          gap: "14px",
-          opacity: animating ? 0 : 1,
-          transform: animating ? "translateY(10px)" : "translateY(0)",
-          transition: "opacity 0.18s ease, transform 0.18s ease",
-        }}>
-          {filtered.map((skill) => (
-            <div
-              key={`${filter}-${skill.name}`}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "16px",
-                padding: "30px 12px 24px",
-                borderRadius: "14px",
-                background: "#111111",
-                border: "1.5px solid #1e1e1e",
-                transition: "transform 0.2s ease",
-                cursor: "default",
-              }}
-              onMouseEnter={e => e.currentTarget.style.transform = "scale(1.06)"}
-              onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
-            >
-              <img
-                src={skill.icon}
-                alt={skill.name}
-                width={44}
-                height={44}
-                style={{ objectFit: "contain" }}
-              />
-              <span style={{
-                fontSize: "12.5px",
-                fontWeight: 500,
-                color: "#4a6a8a",
-                textAlign: "center",
-                letterSpacing: "0.01em",
-              }}>
-                {skill.name}
-              </span>
-            </div>
-          ))}
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <SkillTag
+                      key={item.name}
+                      name={item.name}
+                      note={item.note}
+                      icon={item.icon}
+                    />
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-
       </div>
     </section>
   );
-}
+};
+
+export default Skills;

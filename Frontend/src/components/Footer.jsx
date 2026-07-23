@@ -1,59 +1,41 @@
-import React from 'react'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { GithubIcon as Github, LinkedinIcon as Linkedin } from "./Icons";
 
 const Footer = () => {
   return (
-    <footer style={{
-      background: "rgb(10, 10, 10)",
-      borderTop: "1px solid #1e1e1e",
-      padding: "32px 24px",
-      fontFamily: "'Inter', sans-serif",
-    }}>
-      <div style={{
-        maxWidth: "980px",
-        margin: "0 auto",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        flexWrap: "wrap",
-        gap: "16px",
-      }}>
-
+    <footer className="border-t border-border py-8 px-6 md:px-10">
+      <div className="max-w-[1200px] mx-auto flex items-center justify-between flex-wrap gap-4">
         {/* Logo */}
-        <span style={{ fontWeight: 800, fontSize: "1.1rem", color: "#ffffff", letterSpacing: "-0.02em" }}>
-          Nishant<span style={{ color: "#22d3ee" }}>.dev</span>
+        <span className="font-heading font-bold text-[15px] tracking-tight text-text-primary">
+          N<span className="text-accent">.</span>
         </span>
 
-        {/* Credit */}
-        <p style={{ fontSize: "12.5px", color: "#2d4f68", margin: 0, textAlign: "center" }}>
-          © {new Date().getFullYear()} Nishant Asnani. Built with React &amp; Tailwind.
+        {/* Copyright */}
+        <p className="text-[12px] text-text-dim text-center">
+          © {new Date().getFullYear()} Nishant Asnani
         </p>
 
-        {/* Social links */}
-        <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+        {/* Social */}
+        <div className="flex items-center gap-4">
           <a
             href="https://github.com/NishantAsnani"
-            target="_blank" rel="noreferrer"
-            style={{ color: "#2d4f68", transition: "color 0.2s" }}
-            onMouseEnter={e => e.currentTarget.style.color = "#ffffff"}
-            onMouseLeave={e => e.currentTarget.style.color = "#2d4f68"}
+            target="_blank"
+            rel="noreferrer"
+            className="text-text-dim hover:text-text-primary transition-colors duration-200"
           >
-            <FaGithub size={18} />
+            <Github size={16} />
           </a>
           <a
             href="https://www.linkedin.com/in/nishant-asnani-aa6093208/"
-            target="_blank" rel="noreferrer"
-            style={{ color: "#2d4f68", transition: "color 0.2s" }}
-            onMouseEnter={e => e.currentTarget.style.color = "#22d3ee"}
-            onMouseLeave={e => e.currentTarget.style.color = "#2d4f68"}
+            target="_blank"
+            rel="noreferrer"
+            className="text-text-dim hover:text-accent transition-colors duration-200"
           >
-            <FaLinkedin size={18} />
+            <Linkedin size={16} />
           </a>
         </div>
-
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

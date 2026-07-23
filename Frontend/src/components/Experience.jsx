@@ -1,170 +1,190 @@
-import React from 'react'
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Building2, FlaskConical } from "lucide-react";
+
+/* Icons that appear dark/black and need inversion on dark backgrounds */
+const darkIcons = new Set(["express", "github", "nginx", "amazonwebservices"]);
 
 const experiences = [
   {
     role: "Software Engineer L2",
     company: "Crest Infosystems",
-    duration: "Jan 2024 - Jul 2025",
-    description: [
-      "Engineered internal ERP systems supporting 200+ employees using Node.js & React.",
-      "Built a context-aware chatbot using AWS Bedrock to automate internal queries.",
-      "Optimized database schemas to reduce latency and improve API performance."
+    duration: "Jan 2024 — Jul 2025",
+    icon: Building2,
+    impact: [
+      "Architected and developed a full-scale internal ERP system using Node.js and React, streamlining HR, project tracking, and resource management workflows for 200+ employees across the organization",
+      "Designed and shipped a context-aware AI chatbot powered by AWS Bedrock that automated responses to internal IT and HR queries — significantly reducing support ticket volume and freeing up operational bandwidth",
+      "Identified and resolved performance bottlenecks by redesigning database schemas and optimizing query patterns, leading to measurable improvements in API response times across critical business endpoints",
     ],
-    tech: ["Node.js", "AWS Bedrock", "React"]
+    tech: [
+      { name: "Node.js", icon: "nodejs" },
+      { name: "React", icon: "react" },
+      { name: "AWS", icon: "amazonwebservices" },
+      { name: "DynamoDB", icon: "dynamodb" },
+    ],
   },
   {
     role: "Data Science Intern",
     company: "BISAG-N",
-    duration: "Jul 2023 - Aug 2023",
-    description: [
-      "Analyzed Australian weather datasets to identify rainfall trends.",
-      "Leveraged Pandas & NumPy for data cleaning and Matplotlib for visualization."
+    duration: "Jul 2023 — Aug 2023",
+    icon: FlaskConical,
+    impact: [
+      "Conducted exploratory data analysis on large-scale Australian weather datasets to uncover rainfall prediction trends, applying statistical techniques and feature engineering to improve model inputs",
+      "Built end-to-end data processing pipelines using Pandas and NumPy, and created interactive Matplotlib visualizations that were presented to stakeholders for decision-making",
     ],
-    tech: ["Python", "Pandas", "Matplotlib"]
-  }
+    tech: [
+      { name: "Python", icon: "python" },
+      { name: "Pandas", icon: "pandas" },
+      { name: "Matplotlib", icon: "matplotlib" },
+    ],
+  },
 ];
 
 const Experience = () => {
-  return (
-    <section
-      id="work"
-      style={{ background: "rgb(10, 10, 10)", padding: "96px 24px", fontFamily: "'Inter', sans-serif" }}
-    >
-      <div style={{ maxWidth: "860px", margin: "0 auto" }}>
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-        {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "64px" }}>
-          <p style={{
-            fontSize: "11px", fontWeight: 700, letterSpacing: "0.18em",
-            textTransform: "uppercase", color: "#22d3ee", marginBottom: "14px",
-          }}>
-            Experience
-          </p>
-          <h2 style={{
-            fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 800,
-            color: "#ffffff", margin: 0, letterSpacing: "-0.02em",
-          }}>
-            Work <span style={{ color: "#22d3ee" }}>Experience</span>
-          </h2>
+  return (
+    <section id="experience" className="py-28 md:py-36 px-6 md:px-10">
+      <div className="max-w-[1200px] mx-auto">
+        {/* Section header */}
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-10 md:gap-20 mb-20">
+          <div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-[11px] font-medium tracking-[0.2em] uppercase text-accent mb-4"
+            >
+              Career
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl tracking-[-0.03em] text-text-primary"
+            >
+              EXPERIENCE
+            </motion.h2>
+          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-text-muted text-[15px] leading-relaxed self-end max-w-[480px]"
+          >
+            Impact-driven engineering across enterprise systems, AI tooling, and cloud infrastructure.
+          </motion.p>
         </div>
 
         {/* Timeline */}
-        <div style={{ position: "relative" }}>
-
+        <div ref={ref} className="relative">
           {/* Vertical line */}
-          <div style={{
-            position: "absolute",
-            left: "19px",
-            top: 0,
-            bottom: 0,
-            width: "1px",
-            background: "linear-gradient(to bottom, transparent, #1e1e1e 15%, #1e1e1e 85%, transparent)",
-          }} />
+          <motion.div
+            initial={{ scaleY: 0 }}
+            animate={isInView ? { scaleY: 1 } : {}}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute left-0 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-border origin-top"
+          />
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-            {experiences.map((exp, index) => (
-              <div key={index} style={{ display: "flex", gap: "28px", alignItems: "flex-start" }}>
+          {experiences.map((exp, i) => {
+            const isLeft = i % 2 === 0;
+            const ExpIcon = exp.icon;
 
-                {/* Dot */}
-                <div style={{
-                  flexShrink: 0,
-                  width: "38px", height: "38px",
-                  borderRadius: "50%",
-                  background: "#111111",
-                  border: "1.5px solid #1e1e1e",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  zIndex: 1,
-                  marginTop: "4px",
-                }}>
-                  <div style={{
-                    width: "10px", height: "10px", borderRadius: "50%",
-                    background: "#22d3ee",
-                    boxShadow: "0 0 8px rgba(34,211,238,0.5)",
-                  }} />
-                </div>
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{
+                  delay: i * 0.12,
+                  duration: 0.6,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className={`relative flex flex-col md:flex-row items-start gap-6 md:gap-0 mb-16 last:mb-0 ${
+                  isLeft ? "md:flex-row" : "md:flex-row-reverse"
+                }`}
+              >
+                {/* Dot on line */}
+                <div className="absolute left-[-4px] md:left-1/2 md:-translate-x-1/2 top-2 w-[9px] h-[9px] rounded-full border-2 border-border bg-primary z-10" />
 
-                {/* Card */}
+                {/* Content card */}
                 <div
+                  className={`ml-6 md:ml-0 md:w-[calc(50%-40px)] ${
+                    isLeft ? "md:pr-0" : "md:pl-0"
+                  }`}
                   style={{
-                    flex: 1,
-                    padding: "24px 28px",
-                    borderRadius: "14px",
-                    background: "#111111",
-                    border: "1.5px solid #1e1e1e",
-                    transition: "border-color 0.2s ease, transform 0.2s ease",
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.borderColor = "rgba(34,211,238,0.25)";
-                    e.currentTarget.style.transform = "translateY(-2px)";
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.borderColor = "#1e1e1e";
-                    e.currentTarget.style.transform = "translateY(0)";
+                    ...(isLeft
+                      ? { marginRight: "auto" }
+                      : { marginLeft: "auto" }),
                   }}
                 >
-                  {/* Company + Duration */}
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px", marginBottom: "6px" }}>
-                    <h3 style={{ fontSize: "17px", fontWeight: 700, color: "#ffffff", margin: 0 }}>
-                      {exp.company}
-                    </h3>
-                    <span style={{
-                      fontSize: "11px", fontWeight: 600, color: "#22d3ee",
-                      background: "rgba(34,211,238,0.08)", border: "1px solid rgba(34,211,238,0.15)",
-                      padding: "3px 10px", borderRadius: "999px", fontFamily: "monospace",
-                      letterSpacing: "0.04em",
-                    }}>
+                  <div className="pl-4 md:pl-0">
+                    {/* Duration */}
+                    <span className="text-[11px] font-medium tracking-[0.1em] uppercase text-text-dim block mb-3 font-heading">
                       {exp.duration}
                     </span>
-                  </div>
 
-                  {/* Role */}
-                  <p style={{ fontSize: "13px", color: "#4a6a8a", fontWeight: 500, margin: "0 0 16px" }}>
-                    {exp.role}
-                  </p>
+                    {/* Company with icon */}
+                    <div className="flex items-center gap-3 mb-1">
+                      <div className="w-7 h-7 rounded-md bg-accent/10 border border-accent/15 flex items-center justify-center flex-shrink-0">
+                        <ExpIcon size={14} className="text-accent" />
+                      </div>
+                      <h3 className="font-heading font-bold text-[22px] md:text-[26px] tracking-[-0.02em] text-text-primary">
+                        {exp.company}
+                      </h3>
+                    </div>
 
-                  {/* Description */}
-                  <ul style={{ margin: "0 0 18px", padding: "0 0 0 16px" }}>
-                    {exp.description.map((desc, i) => (
-                      <li key={i} style={{
-                        fontSize: "13.5px", color: "#6b8fa8", lineHeight: 1.7,
-                        marginBottom: "4px",
-                        listStyleType: "none",
-                        paddingLeft: "12px",
-                        position: "relative",
-                      }}>
-                        <span style={{
-                          position: "absolute", left: 0, top: "10px",
-                          width: "4px", height: "4px", borderRadius: "50%",
-                          background: "#22d3ee", display: "inline-block",
-                        }} />
-                        {desc}
-                      </li>
-                    ))}
-                  </ul>
+                    {/* Role */}
+                    <p className="text-accent text-[14px] font-medium mb-5">
+                      {exp.role}
+                    </p>
 
-                  {/* Tech tags */}
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-                    {exp.tech.map((t, i) => (
-                      <span key={i} style={{
-                        fontSize: "11px", fontWeight: 500, color: "#4a6a8a",
-                        background: "#1a1a1a", border: "1px solid #1e1e1e",
-                        padding: "3px 10px", borderRadius: "6px",
-                        letterSpacing: "0.02em",
-                      }}>
-                        {t}
-                      </span>
-                    ))}
+                    {/* Impact bullets */}
+                    <ul className="space-y-3 mb-6">
+                      {exp.impact.map((point, j) => (
+                        <li
+                          key={j}
+                          className="flex items-start gap-3 text-[13.5px] text-text-muted leading-[1.65]"
+                        >
+                          <span className="w-1 h-1 rounded-full bg-accent mt-[9px] flex-shrink-0" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Tech stack with devicons */}
+                    <div className="flex flex-wrap gap-2">
+                      {exp.tech.map((t) => (
+                        <span
+                          key={t.name}
+                          className="px-3 py-1 text-[11px] font-medium text-text-dim bg-secondary border border-border rounded inline-flex items-center gap-1.5"
+                        >
+                          {t.icon && (
+                            <img
+                              src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${t.icon}/${t.icon}-original.svg`}
+                              alt=""
+                              className={`w-3 h-3 opacity-60 ${darkIcons.has(t.icon) ? "devicon-dark" : ""}`}
+                              loading="lazy"
+                            />
+                          )}
+                          {t.name}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-
-              </div>
-            ))}
-          </div>
+              </motion.div>
+            );
+          })}
         </div>
-
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Experience
+export default Experience;
