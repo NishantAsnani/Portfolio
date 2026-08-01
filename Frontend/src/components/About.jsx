@@ -42,10 +42,10 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-28 md:py-36 px-6 md:px-10">
+    <section id="about" className="py-16 md:py-36 px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto">
         {/* Section header — asymmetric */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-10 md:gap-20 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-6 md:gap-20 mb-12 md:mb-20">
           <div>
             <motion.p
               initial={{ opacity: 0 }}
@@ -101,7 +101,7 @@ const About = () => {
                   duration: 0.5,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="relative flex items-start gap-6 md:gap-10 pl-0 py-8 group"
+                className="relative flex items-start gap-4 md:gap-10 pl-0 py-5 md:py-8 group"
               >
                 {/* Dot */}
                 <div className="relative flex-shrink-0 w-[40px] md:w-[120px] flex items-center">

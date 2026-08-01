@@ -44,6 +44,11 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-primary text-text-primary font-body">
+      {/* Skip to content — accessibility */}
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
+
       {/* Noise texture overlay */}
       <div className="noise-overlay" />
 
@@ -53,7 +58,7 @@ const Portfolio = () => {
         isScrolled={isScrolled}
       />
 
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Skills />

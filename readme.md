@@ -11,15 +11,15 @@ This repository contains the source code for my personal portfolio website. The 
 5. [Usage](#usage)
 6. [Technologies Used](#technologies-used)
 7. [Contributing](#contributing)
-8. [License](#license)
-9. [Author](#author)
+8. [Author](#author)
 
 ## Features
 
+- **Skills:** Technical stack overview with categorized skill tags.
 - **Certifications:** Showcase of certifications with links to view certificates.
-- **Experience:** Summary of work experience and involvement in organizations.
-- **Projects:** Display of portfolio projects with images and links.
-- **Contact:** Diaplay of social media links.
+- **Experience:** Summary of work experience with impact-driven bullet points.
+- **Projects:** Display of portfolio projects with GitHub links and live demos.
+- **Contact:** Contact form and social media links.
 
 ## Demo
 https://nishant-developer.vercel.app/
@@ -30,12 +30,15 @@ https://nishant-developer.vercel.app/
 3. Install dependencies: `npm install`
 
 ## Usage
-1. Start the development server: `npm start`
+1. Start the development server: `npm run dev`
 2. Open your browser and go to `http://localhost:5173` to view the website.
 
 ## Technologies Used
-- React.js: Frontend framework for building user interfaces.
-- TailwindCSS: For styling Purposes
+- **React** — Frontend UI library
+- **Vite** — Build tool and dev server
+- **Tailwind CSS** — Utility-first styling
+- **Framer Motion** — Animations and transitions
+- **Lucide React** — Icon library
 
 ## Contributing
 Contributions are welcome! Here's how you can contribute:
@@ -44,8 +47,6 @@ Contributions are welcome! Here's how you can contribute:
 - Make your changes and commit them: `git commit -m 'Add new feature'`
 - Push to the branch: `git push origin feature-new-feature`
 - Submit a pull request
-
-
 
 ## Author
 - [Nishant Asnani](https://github.com/NishantAsnani)

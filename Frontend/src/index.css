@@ -54,18 +54,6 @@ body {
   background-size: 128px 128px;
 }
 
-/* ───── Dot Grid Pattern ───── */
-.dot-grid {
-  background-image: radial-gradient(circle, #1a1a1a 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* ───── Section divider ───── */
-.section-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #1e1e1e 20%, #1e1e1e 80%, transparent);
-}
-
 /* ───── Link reset ───── */
 a {
   color: inherit;
@@ -81,25 +69,40 @@ a {
   transition: transform 0.2s ease;
 }
 
-/* ───── Text shimmer for accent text ───── */
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
 /* ───── Dark devicon fix: invert black SVGs for dark backgrounds ───── */
 .devicon-dark {
   filter: invert(1) brightness(2);
 }
 
-/* ───── Smooth stagger entrance ───── */
-@keyframes staggerIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+/* ───── Skip to content link (accessibility) ───── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  padding: 8px 16px;
+  background: #FF7A18;
+  color: #090909;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 0 0 6px 6px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ───── Reduced motion preference ───── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  html {
+    scroll-behavior: auto;
   }
 }

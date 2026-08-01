@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
@@ -40,6 +40,7 @@ const Hero = () => {
         <svg
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
           <defs>
             <pattern
@@ -73,14 +74,14 @@ const Hero = () => {
       {/* Content */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 max-w-[1200px] mx-auto w-full px-6 md:px-10 pt-32 md:pt-0"
+        className="relative z-10 max-w-[1200px] mx-auto w-full px-6 md:px-10 pt-24 md:pt-0"
       >
         {/* Status badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="flex items-center gap-2 mb-10"
+          className="flex items-center gap-2 mb-6 md:mb-10"
         >
           <div className="w-[6px] h-[6px] rounded-full bg-accent animate-pulse-slow" />
           <span className="text-[11px] font-medium tracking-[0.15em] uppercase text-text-muted">
@@ -99,28 +100,27 @@ const Hero = () => {
         </motion.p>
 
         {/* Main title — Name */}
-        <div className="mb-8">
+        <div className="mb-5 md:mb-8">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="font-heading font-bold tracking-[-0.04em] leading-[0.9] text-text-primary"
+            className="font-heading font-bold tracking-[-0.04em] leading-[0.9]"
             style={{ fontSize: "clamp(52px, 11vw, 130px)" }}
           >
-            NISHANT
-          </motion.h1>
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.45, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="font-heading font-bold tracking-[-0.04em] leading-[0.9]"
-            style={{
-              fontSize: "clamp(52px, 11vw, 130px)",
-              WebkitTextStroke: "1.5px #F5F5F5",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            ASNANI
+            <span className="text-text-primary block">NISHANT</span>
+            <motion.span
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="block"
+              style={{
+                WebkitTextStroke: "1.5px #F5F5F5",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              ASNANI
+            </motion.span>
           </motion.h1>
         </div>
 
@@ -129,7 +129,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="text-text-muted text-[15px] md:text-[17px] leading-relaxed max-w-[460px] mb-12"
+          className="text-text-muted text-[15px] md:text-[17px] leading-relaxed max-w-[460px] mb-8 md:mb-12"
         >
           Building scalable backend systems,
           <br />
@@ -172,7 +172,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2"
       >
         <span className="text-[10px] tracking-[0.2em] uppercase text-text-dim">
           Scroll
@@ -181,7 +181,7 @@ const Hero = () => {
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ArrowDown size={14} className="text-text-dim" />
+          <ArrowDown size={14} className="text-text-dim" aria-hidden="true" />
         </motion.div>
       </motion.div>
     </section>

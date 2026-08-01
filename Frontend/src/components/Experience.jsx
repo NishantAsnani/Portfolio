@@ -2,8 +2,8 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Building2, FlaskConical } from "lucide-react";
 
-/* Icons that appear dark/black and need inversion on dark backgrounds */
-const darkIcons = new Set(["express", "github", "nginx", "amazonwebservices"]);
+/* Icons that appear dark/black and need white SVG replacements on dark backgrounds */
+const darkIcons = new Set(["express", "github", "nginx", "amazonwebservices", "pandas", "matplotlib"]);
 
 const experiences = [
   {
@@ -45,10 +45,10 @@ const Experience = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" className="py-28 md:py-36 px-6 md:px-10">
+    <section id="experience" className="py-16 md:py-36 px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto">
         {/* Section header */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-10 md:gap-20 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-6 md:gap-20 mb-12 md:mb-20">
           <div>
             <motion.p
               initial={{ opacity: 0 }}
@@ -105,7 +105,7 @@ const Experience = () => {
                   duration: 0.6,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className={`relative flex flex-col md:flex-row items-start gap-6 md:gap-0 mb-16 last:mb-0 ${
+                className={`relative flex flex-col md:flex-row items-start gap-4 md:gap-0 mb-10 md:mb-16 last:mb-0 ${
                   isLeft ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
@@ -132,7 +132,7 @@ const Experience = () => {
                     {/* Company with icon */}
                     <div className="flex items-center gap-3 mb-1">
                       <div className="w-7 h-7 rounded-md bg-accent/10 border border-accent/15 flex items-center justify-center flex-shrink-0">
-                        <ExpIcon size={14} className="text-accent" />
+                        <ExpIcon size={14} className="text-accent" aria-hidden="true" />
                       </div>
                       <h3 className="font-heading font-bold text-[22px] md:text-[26px] tracking-[-0.02em] text-text-primary">
                         {exp.company}

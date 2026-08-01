@@ -19,18 +19,20 @@ const Footer = () => {
           <a
             href="https://github.com/NishantAsnani"
             target="_blank"
-            rel="noreferrer"
-            className="text-text-dim hover:text-text-primary transition-colors duration-200"
+            rel="noopener noreferrer"
+            className="text-text-dim hover:text-accent transition-colors duration-200"
+            aria-label="GitHub profile"
           >
-            <Github size={16} />
+            <Github size={16} aria-hidden="true" />
           </a>
           <a
             href="https://www.linkedin.com/in/nishant-asnani-aa6093208/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="text-text-dim hover:text-accent transition-colors duration-200"
+            aria-label="LinkedIn profile"
           >
-            <Linkedin size={16} />
+            <Linkedin size={16} aria-hidden="true" />
           </a>
         </div>
       </div>

@@ -67,7 +67,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-28 md:py-40 px-6 md:px-10">
+    <section id="contact" className="py-16 md:py-40 px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto">
         {/* Large heading */}
         <motion.div
@@ -75,7 +75,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 md:mb-20"
+          className="mb-10 md:mb-20"
         >
           <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-accent mb-4">
             Connect
@@ -93,7 +93,7 @@ const Contact = () => {
         </motion.div>
 
         {/* Two column: form left, links right */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-16 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-20">
           {/* Contact form */}
           <motion.form
             onSubmit={handleSubmit}
@@ -105,11 +105,12 @@ const Contact = () => {
           >
             {/* Name */}
             <div>
-              <label className="text-[11px] font-medium tracking-[0.12em] uppercase text-text-dim block mb-2">
+              <label htmlFor="contact-name" className="text-[11px] font-medium tracking-[0.12em] uppercase text-text-dim block mb-2">
                 Name
               </label>
               <input
                 type="text"
+                id="contact-name"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
@@ -121,11 +122,12 @@ const Contact = () => {
 
             {/* Email */}
             <div>
-              <label className="text-[11px] font-medium tracking-[0.12em] uppercase text-text-dim block mb-2">
+              <label htmlFor="contact-email" className="text-[11px] font-medium tracking-[0.12em] uppercase text-text-dim block mb-2">
                 Email
               </label>
               <input
                 type="email"
+                id="contact-email"
                 name="email"
                 value={form.email}
                 onChange={handleChange}
@@ -137,10 +139,11 @@ const Contact = () => {
 
             {/* Message */}
             <div>
-              <label className="text-[11px] font-medium tracking-[0.12em] uppercase text-text-dim block mb-2">
+              <label htmlFor="contact-message" className="text-[11px] font-medium tracking-[0.12em] uppercase text-text-dim block mb-2">
                 Message
               </label>
               <textarea
+                id="contact-message"
                 name="message"
                 value={form.message}
                 onChange={handleChange}
@@ -159,14 +162,14 @@ const Contact = () => {
             >
               {status === "sending" ? (
                 <>
-                  <Loader2 size={15} className="animate-spin" />
+                  <Loader2 size={15} className="animate-spin" aria-hidden="true" />
                   Sending...
                 </>
               ) : status === "sent" ? (
                 "Message Sent ✓"
               ) : (
                 <>
-                  <Send size={14} />
+                  <Send size={14} aria-hidden="true" />
                   Send Message
                 </>
               )}
@@ -199,6 +202,7 @@ const Contact = () => {
                 <Mail
                   size={18}
                   className="text-text-dim group-hover:text-accent transition-colors duration-200"
+                  aria-hidden="true"
                 />
                 <div>
                   <span className="text-[11px] font-medium tracking-[0.1em] uppercase text-text-dim block mb-0.5">
@@ -209,7 +213,7 @@ const Contact = () => {
                   </span>
                 </div>
               </div>
-              <ArrowUpRight size={18} className="text-text-dim group-hover:text-accent transition-colors" />
+              <ArrowUpRight size={18} className="text-text-dim group-hover:text-accent transition-colors" aria-hidden="true" />
             </a>
 
             {/* Other links */}
@@ -218,7 +222,7 @@ const Contact = () => {
                 key={link.label}
                 href={link.href}
                 target={link.download ? undefined : "_blank"}
-                rel={link.download ? undefined : "noreferrer"}
+                rel={link.download ? undefined : "noopener noreferrer"}
                 download={link.download || undefined}
                 className="group flex items-center justify-between py-6 border-b border-border transition-colors duration-200 hover:bg-secondary/30 px-2 -mx-2 rounded"
               >
@@ -236,7 +240,7 @@ const Contact = () => {
                     </span>
                   </div>
                 </div>
-                <ArrowUpRight size={18} className="text-text-dim group-hover:text-accent transition-colors" />
+                <ArrowUpRight size={18} className="text-text-dim group-hover:text-accent transition-colors" aria-hidden="true" />
               </a>
             ))}
 

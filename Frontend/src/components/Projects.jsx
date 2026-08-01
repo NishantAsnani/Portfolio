@@ -120,7 +120,7 @@ const FeaturedCard = ({ project, index }) => {
           <div className="flex items-center gap-3 mb-4">
             {Icon && (
               <div className="w-8 h-8 rounded-md bg-accent/10 border border-accent/20 flex items-center justify-center">
-                <Icon size={16} className="text-accent" />
+                <Icon size={16} className="text-accent" aria-hidden="true" />
               </div>
             )}
             <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-accent">
@@ -166,7 +166,7 @@ const FeaturedCard = ({ project, index }) => {
               <a
                 href={project.github}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 text-[13px] font-medium text-text-muted hover:text-text-primary transition-colors duration-200"
               >
                 <Github size={15} />
@@ -177,7 +177,7 @@ const FeaturedCard = ({ project, index }) => {
               <a
                 href={project.link}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 text-[13px] font-medium text-accent hover:opacity-80 transition-opacity duration-200"
               >
                 <ExternalLink size={14} />
@@ -196,6 +196,7 @@ const FeaturedCard = ({ project, index }) => {
             <ArrowUpRight
               size={28}
               className="text-border group-hover:text-accent transition-colors duration-300"
+              aria-hidden="true"
             />
           </motion.div>
         </div>
@@ -228,7 +229,7 @@ const ProjectCard = ({ project, index }) => {
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-2.5">
           {Icon && (
-            <Icon size={14} className="text-accent/70" />
+            <Icon size={14} className="text-accent/70" aria-hidden="true" />
           )}
           <span className="text-[10px] font-semibold tracking-[0.12em] uppercase text-accent">
             {project.category}
@@ -239,20 +240,22 @@ const ProjectCard = ({ project, index }) => {
             <a
               href={project.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="text-text-dim hover:text-text-primary transition-colors"
+              aria-label={`View ${project.title} source on GitHub`}
             >
-              <Github size={15} />
+              <Github size={15} aria-hidden="true" />
             </a>
           )}
           {project.link && (
             <a
               href={project.link}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="text-text-dim hover:text-accent transition-colors"
+              aria-label={`Visit ${project.title} live demo`}
             >
-              <ExternalLink size={14} />
+              <ExternalLink size={14} aria-hidden="true" />
             </a>
           )}
         </div>
@@ -333,10 +336,10 @@ export default function Projects() {
   const regular = filtered.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-28 md:py-36 px-6 md:px-10">
+    <section id="projects" className="py-16 md:py-36 px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-10 md:gap-20 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-6 md:gap-20 mb-10 md:mb-16">
           <div>
             <motion.p
               initial={{ opacity: 0 }}
@@ -375,7 +378,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.3 }}
-          className="flex flex-wrap gap-2 mb-14"
+          className="flex flex-wrap gap-2 mb-8 md:mb-14"
         >
           {filterTags.map((tag) => {
             const active = activeTag === tag;

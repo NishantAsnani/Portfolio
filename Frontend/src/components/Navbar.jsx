@@ -37,6 +37,7 @@ const Navbar = ({ activeSection, scrollToSection, isScrolled }) => {
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="font-heading font-bold text-lg tracking-tight text-text-primary hover:text-accent transition-colors duration-200"
+            aria-label="Go to top"
           >
             N<span className="text-accent">.</span>
           </button>
@@ -86,6 +87,8 @@ const Navbar = ({ activeSection, scrollToSection, isScrolled }) => {
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden text-[13px] font-medium tracking-wide uppercase text-text-muted hover:text-text-primary transition-colors"
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           >
             {menuOpen ? "Close" : "Menu"}
           </button>
