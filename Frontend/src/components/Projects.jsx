@@ -12,6 +12,7 @@ const projectIcons = {
   "AlgoArena.IO": Swords,
   "Rentofy": ShoppingCart,
   "Resume Builder": FileText,
+  "Class Diagram Generator": FileText,
 };
 
 const projects = [
@@ -87,6 +88,16 @@ const projects = [
       "Full-stack application for creating, customizing, and downloading professional resumes.",
     tech: ["React", "Node.js", "Express", "PDFKit"],
     github: "https://github.com/NishantAsnani/Resume_Builder",
+    featured: false,
+  },
+  {
+    title: "Class Diagram Generator",
+    category: "AI / Productivity",
+    tags: ["AI", "Full Stack"],
+    description:
+      "A GitHub-linked project that generates a class diagram only when the input is class-based; otherwise, it returns no diagram.",
+    tech: ["Python", "React", "FastAPI"],
+    github: "https://github.com/NishantAsnani/Class_Diagram_Generator",
     featured: false,
   },
 ];
