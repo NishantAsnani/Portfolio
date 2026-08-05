@@ -95,8 +95,8 @@ const projects = [
     category: "AI / Productivity",
     tags: ["AI", "Full Stack"],
     description:
-      "A GitHub-linked project that generates a class diagram only when the input is class-based; otherwise, it returns no diagram.",
-    tech: ["Python", "React", "FastAPI"],
+      "An class diagram generator that transforms structured class-based input into clear UML-style diagrams for better software visualization.",
+    tech: ["Node.js", "Express", "React"],
     github: "https://github.com/NishantAsnani/Class_Diagram_Generator",
     featured: false,
   },
